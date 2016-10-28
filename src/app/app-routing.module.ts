@@ -1,7 +1,15 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-const routes: Routes = [];
+import TodosRootComponent from './todos-root.component';
+
+
+const routes: Routes = [
+  {
+    path: '',
+    component: 'todos-root.component'
+  },
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

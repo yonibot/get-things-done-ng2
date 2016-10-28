@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
+import TodosRootComponent  from './todos-root.component';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  template: `
+    <todos-root></todos-root>
+  `,
 })
-export class AppComponent {
-  title = 'app works!';
-}
+export class AppComponent {}
