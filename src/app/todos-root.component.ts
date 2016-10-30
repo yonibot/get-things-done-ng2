@@ -12,6 +12,7 @@ import Todo from './todo.model';
         class="content"
         [todos]="todos"
         (onAddTodo)="onAddTodo($event)"
+        [onToggleCompleted]="toggleCompleted.bind(this)"
         (onUpdateTodo)="onUpdateTodo($event)"></content-page>
     </div>
   `,
@@ -37,16 +38,22 @@ import Todo from './todo.model';
 export default class TodosRootComponent {
   todos: Todo[] = [];
 
-  onAddTodo(todoText) {
+  onAddTodo(todoText): void {
     const newTodos = [...this.todos, new Todo(todoText)];
     this.todos = newTodos;
   }
 
-  onUpdateTodo(prev_and_new) {
+  onUpdateTodo(prev_and_new): void {
     let prevText = prev_and_new["prevText"];
     let newText = prev_and_new["newText"];
-    this.todos.map(t=> {
-      t.text === prevText ? Object.assign({}, t, {text: newText}) : t
+    this.todos = this.todos.map(t=> {
+      return t.text === prevText ? Object.assign({}, t, {text: newText, isEditable: false}) : t
+    });
+  }
+
+  toggleCompleted(todo): void {
+    this.todos = this.todos.map(t=> {
+      return t.text === todo.text ? new Todo(t.text, !t.completed): t
     });
   }
 
