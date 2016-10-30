@@ -9,6 +9,7 @@ import Todo from './todo.model';
   selector: 'content-page',
   template: `
     <h1>To Do Today - {{ date }}</h1>
+    <br />
     <input
       #newTodo
       (keyup.enter)="addTodo(newTodo.value); newTodo.value=''" />
