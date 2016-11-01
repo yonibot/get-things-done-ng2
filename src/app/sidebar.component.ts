@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'sidebar',
   template: `
-      <h1>Team Name.</h1>
+      <h1>Team member name.</h1>
   `,
   styles: [
     `
