@@ -15,7 +15,7 @@ import Todo from './todo.model';
       (keyup.enter)="addTodo(newTodo.value); newTodo.value=''" />
     <button
       (click)="addTodo(newTodo.value); newTodo.value=''">Add</button>
-    <ul>
+    <ul class="todos-list">
       <li
         *ngFor="let todo of sortedTodos(); let i = index;"
         #todoListItem>
@@ -41,9 +41,14 @@ import Todo from './todo.model';
     </ul>
   `,
   styles: [
-    `.todo-style {
+    `
+    .todo-style {
       text-decoration: line-through;
-    }`
+    }
+    ul {
+      list-style: none;
+    }
+    `
   ]
 })
 export default class ContentPageComponent {
