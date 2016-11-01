@@ -9,6 +9,10 @@ const routes: Routes = [
     path: '',
     component: 'todos-root.component'
   },
+  {
+    path: '/login',
+    component: 'auth.component'
+  }
 ];
 
 @NgModule({
